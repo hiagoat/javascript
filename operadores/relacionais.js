@@ -25,7 +25,11 @@ let compra = 40
 let total = dinheiro - compra
 let situacao = total > 0
 console.log(situacao)
+
 console.log ("---------------------------")
 let numero = 10
 let divisivel = 10 % 2
 console.log(divisivel)
+
+
+
