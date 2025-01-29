@@ -1,12 +1,12 @@
 console.log("Olá, Mundo!")
 
-let nome = "Juliana"
-var nomes = "Juliana"
+let nome = "Pelota"
+var nomes = "Pelota"
 
 // CRTRL + ; -> COMENTARIOS
 console.log(nome)
 
-let idade = 24
+let idade = 80
 console.log("Minha idade é ", idade, " anos")
 
 let a = 3
