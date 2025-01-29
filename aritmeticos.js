@@ -1,7 +1,7 @@
 console.log("Olá, Mundo!")
 
-let nome = "Pelota"
-var nomes = "Pelota"
+let nome = "Pelote"
+var nomes = "Pelote"
 
 // CRTRL + ; -> COMENTARIOS
 console.log(nome)
