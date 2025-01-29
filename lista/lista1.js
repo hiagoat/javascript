@@ -48,5 +48,5 @@ console.log(media)
 
 let celsius = 9
 
-let f = celsius * 9/5 + 32
-console.log(f)
+let F = celsius * 9/5 + 32
+console.log(F)
