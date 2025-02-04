@@ -50,8 +50,8 @@ if (temperatura > 30 ){
 }
 
 // Exercicio 7
-let number = -8
-if (number >= 0 ){
+let number1 = -8
+if (number1 >= 0 ){
     console.log("Número positivo")
 }else {
     console.log("Número negativo")
