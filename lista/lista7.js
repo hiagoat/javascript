@@ -1,6 +1,6 @@
 // exercico 1
-let dia = Number(prompt ("Qual é o dia da semana"))
-switch(dia) {
+let dia1 = Number(prompt ("Qual é o dia da semana"))
+switch(dia1) {
     case 1 :
         console.log("Domingo")
         break
@@ -27,8 +27,8 @@ switch(dia) {
 }
 
 // exercico 2
-let num = Number(prompt ("Digite sua idade! (Insira 5, 10, 15, 20 ou 30)"))
-switch(num) {
+let num1 = Number(prompt ("Digite sua idade! (Insira 5, 10, 15, 20 ou 30)"))
+switch(num1) {
     case 5 :
         console.log("Infantil A")
         break
@@ -49,8 +49,8 @@ switch(num) {
 }
 
 // exercico 3
-let letra = prompt ("Digite seu turno! (Insira M, V OU N.)")
-switch(letra) {
+let letra1 = prompt ("Digite seu turno! (Insira M, V OU N.)")
+switch(letra1) {
     case "M" :
         console.log("Bom dia!")
         break
@@ -64,8 +64,8 @@ switch(letra) {
         console.log("Turno inválido. Insira M, V ou N.")
 }
 // exercico 4
-let Number= Number (prompt ("Digite seu turno! (Insira M, V OU N.)"))
-switch(Number) {
+let Number1= Number (prompt ("Digite um numero de 1 a 5 e descubra seu time!!"))
+switch(Number1) {
     case 1 :
         console.log("Flamengo")
         break
@@ -73,20 +73,20 @@ switch(Number) {
         console.log("Fluminenese")
         break
     case 3 :
-        console.log("Boa noite!")
+        console.log("Vasco")
         break
     case 4 :
-        console.log("Boa noite!")
+        console.log("Botafogo")
         break
     case 5 :
-        console.log("Boa noite!")
+        console.log("Nova Iguaçu")
         break
     default: 
-        console.log("Turno inválido. Insira M, V ou N.")
+        console.log("Número fora do intervalo. Insira um valor entre 1 e 5.")
 }
 // exercico 5
-let estação = Number (prompt ("Digite um numero (Descubra a estação)"))
-switch(estação) {
+let estação1 = Number (prompt ("Digite um numero (Descubra a estação)"))
+switch(estação1) {
     case 1 :
         console.log("Primavera")
         break
