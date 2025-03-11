@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Exercícios - DOM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Lista de Exercícios - DOM</h1>
+
+    <!-- Exercício 1 - Ocultar Imagem -->
+    <button onclick="ocultarImagem()">Ocultar/Exibir Imagem</button>
+    <img id="minhaImagem" src="https://p2.trrsf.com/image/fget/cf/1200/1600/middle/images.terra.com/2018/06/15/2018-06-15T231634Z_1_LYNXMPEE5E1XM_RTROPTP_4_FUT-COPA-CRONALDO.JPG" alt="Imagem exemplo" style="display: block; width: 100%; max-width: 500px; margin-top: 10px;">
+
+    <br><br>
+
+    <!-- Exercício 2 - Tema escuro -->
+    <button onclick="alternarTema()">Alterar Tema</button>
+    <p id="texto">Este é um texto para alterar o tema!</p>
+
+    <br><br>
+
+    <!-- Exercício 3 - Completar texto -->
+    <p id="completo">Meu nome é ______, tenho __ anos, moro em ______, estudo no _____ e faço o curso de ____________.</p>
+    <button onclick="completarTexto()">Completar Texto</button>
+
+    <br><br>
+
+    <!-- Exercício 4 - Cores do Brasil -->
+    <p id="brasil">Brasil</p>
+    <button onclick="trocarCor()">Trocar Cor</button>
+
+    <br><br>
+
+    <!-- Exercício 5 - Não clique -->
+    <button id="botaoNaoClique">Não clique</button>
+
+    <br><br>
+
+    <!-- Exercício 6 - Escolha premiada -->
+    <p>Escolha uma porta e receba seu prêmio:</p>
+    <button onclick="escolherPremio(1)">Porta 1</button>
+    <button onclick="escolherPremio(2)">Porta 2</button>
+    <button onclick="escolherPremio(3)">Porta 3</button>
+
+    <!-- Exercício 7 - Redimensionar imagem -->
+    <button onclick="redimensionarImagem()">Redimensionar Imagem</button>
+    <img id="imagemRedimensionar" src="https://media.gettyimages.com/id/854340104/pt/foto/barcelona-spain-lionel-andres-messi-of-fc-barcelona-looks-during-the-la-liga-2017-18-match.jpg?s=612x612&w=gi&k=20&c=IHf5ebBIHaxxBLCON8QbYUhsgQr1VivzYoqPQkSfvx0=" alt="Imagem redimensionada" style="width: 150px; height: 150px; margin-top: 10px;">
+
+    <br><br>
+
+    <!-- Exercício 8 - Semáforo -->
+    <div id="luz1" style="background-color: black; width: 200px; height: 200px; border-radius: 50%; margin-bottom: 10px;"></div>
+    <div id="luz2" style="background-color: black; width: 200px; height: 200px; border-radius: 50%; margin-bottom: 10px;"></div>
+    <div id="luz3" style="background-color: black; width: 200px; height: 200px; border-radius: 50%;"></div>
+    <button onclick="mudarSemaforo()">Mudar Semáforo</button>
+
+    <br><br>
+
+    <!-- Exercício 9 - Recomendação de filme -->
+    <div id="comedia" class="retangulo" onmouseover="mostrarImagem('comedia')" onmouseout="ocultarImagem('comedia')">
+        <img id="imagemComedia" class="imagem-filme" src="imagens/driving_into.png.png" alt="Filme de Comédia">
+        <img id="imagemComediaHover" class="imagem-filme" src="imagens/filme_comedia_hover.png" alt="Filme de Comédia Hover">
+    </div>
+
+    <div id="acao" class="retangulo" onmouseover="mostrarImagem('acao')" onmouseout="ocultarImagem('acao')">
+        <img id="imagemAcao" class="imagem-filme" src="imagens/driving_into_1.png.png" alt="Filme de Ação">
+        <img id="imagemAcaoHover" class="imagem-filme" src="imagens/filme_acao_hover.png" alt="Filme de Ação Hover">
+    </div>
+
+    <div id="romance" class="retangulo" onmouseover="mostrarImagem('romance')" onmouseout="ocultarImagem('romance')">
+        <img id="imagemRomance" class="imagem-filme" src="imagens/driving_into_2.png.png" alt="Filme de Romance">
+        <img id="imagemRomanceHover" class="imagem-filme" src="imagens/filme_romance_hover.png" alt="Filme de Romance Hover">
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
