@@ -1,0 +1,115 @@
+/* Estilos globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+#quiz-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #6a1b9a; /* Roxo */
+    margin-bottom: 20px;
+}
+
+#question-container {
+    margin-bottom: 20px;
+}
+
+#question-text {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#question-image {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.option {
+    background-color: #6a1b9a; /* Roxo */
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.option:hover {
+    background-color: #8e24aa; /* Tom mais claro de roxo */
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+#next-button {
+    background-color: #6a1b9a;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+#next-button:hover {
+    background-color: #8e24aa;
+}
+
+#final-message {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #6a1b9a;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#final-text {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.8;
+}
+
+#final-gif {
+    width: 80%;
+    margin: 20px auto;
+}

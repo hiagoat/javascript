@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="quiz-container">
+        <h1>Quiz de Perguntas</h1>
+        
+        <div id="question-container">
+            <p id="question-text"></p>
+            <img id="question-image" src="" alt="Imagem da pergunta">
+        </div>
+
+        <div id="options-container">
+            <!-- Botões de opções vão aqui -->
+        </div>
+
+        <div id="message"></div>
+        
+        <button id="next-button" class="hidden">Próxima Pergunta</button>
+
+        <div id="final-message" class="hidden">
+            <p>Quiz finalizado. Muito bem! Você terminou todas as perguntas.</p>
+            <img id="final-gif" src="imagens/6641790_773e7.gif" alt="Gif de finalização" class="hidden">
+            
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/vGJTaP6anOU" frameborder="0" allowfullscreen></iframe>
+            <div id="final-text">
+                <p>Parabéns por completar o quiz! Esse quiz mostra o quão importante você é pra minha vida e que eu admiro sua amizade. Você está no coração do pedro higo</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
