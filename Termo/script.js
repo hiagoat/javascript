@@ -20,9 +20,9 @@ let colunaAtual = 0
 // Define as palavras que podem ser
 const palavrasSecretas = ["SENAI","LIVRO", "PLANO", "NORTE", "TREVO" ]
 let mapaPalavra = {}
-let palavraSecreta = palavrasSecretas[Math. floor(Math.random()*palavrasSecretas.length)]
+let palavraSecreta = palavrasSecretas[Math.floor(Math.random()*palavrasSecretas.length)]
 
-for(let i = 0; i < palavraSecreta. length; i += 1){
+for(let i = 0; i < palavraSecreta.length; i += 1){
     mapaPalavra[palavraSecreta[i]] = i
 }
 
@@ -40,9 +40,9 @@ for(let l=0; l < linhas; l+=1) { //letra L minuscula
     for(let c = 0; c < colunas; c+=1) {
         const colunaLetra = document.createElement("div")
         colunaLetra.setAttribute("id", "linha" + l + "coluna" + c)
-        colunaLetra.setAttribute("class", 1 == 0 ? "coluna-letradigitando":"coluna-letra")
+        colunaLetra.setAttribute("class", l == 0 ? "coluna-letra digitando":"coluna-letra")
         linhasLetras.append(colunaLetra)
-        palpites[1][c] ="" //inicia vazio
+        palpites[l][c] ="" //inicia vazio
     }
     // Adiciona a linha criada ao site
     letras.append(linhasLetras)
@@ -55,7 +55,7 @@ function verificarPalpite() {
         return //Se o palpite estiver incompleto ele não verifica
     }
     // Pega a linha atual que estamos
-    const colunaAtuais = document.querySelector(".digitando")
+    const colunaAtuais = document.querySelectorAll(".digitando")
     for(let i = 0; i < colunas; i += 1) {
         const letra = palpite[i]
 
@@ -83,7 +83,7 @@ function moverParaProximaLinha() {
     // Remove a classe digitando na linha atual
     const colunaDigitando = document.querySelectorAll(".digitando")
     colunaDigitando.forEach(col => {
-        col.classList,remove("digitando")
+        col.classList.remove("digitando")
     })
     linhaAtual += 1 //Avança para a proxima linha
     colunaAtual = 0 //Reinicia a posição da coluna
@@ -107,12 +107,12 @@ function clicarTecla(tecla){
 }
 // Criando os botões do teclado virtual
 function criarLinhaTeclado(teclas, container) {
-    teclas. forEach(tecla => {
-    const botao = document. createElement ("button")
-    botao. textContent = tecla
+    teclas.forEach(tecla => {
+    const botao = document.createElement("button")
+    botao.textContent = tecla
     botao.setAttribute("id", tecla)
     // Ao clicar adiciona a letra
-    botao. addEventListener("click", () => clicarTecla(tecla))
+    botao.addEventListener("click", () => clicarTecla(tecla))
     container.append(botao) //adiciona o botão
 })
 }
@@ -130,13 +130,12 @@ function apagarLetra(){
     }
     colunaAtual -= 1
     palpites[linhaAtual][colunaAtual] = "" //remove a letra
-    const letra = document.querySelector("#linha"+linhaAtual+"coluna"
-    +colunaAtual)
-    letra. textContent = ""
-    
+    const letra = document.querySelector("#linha"+linhaAtual+"coluna"+colunaAtual)
+    letra.textContent = ""
+}
     // Cria o botão de apagar "<"
-    const botaoApagar = document. createElement("button")
-    botaoApagar. textContent = "<"
+    const botaoApagar = document.createElement("button")
+    botaoApagar.textContent = "<"
     botaoApagar.addEventListener("click", apagarLetra) // quando clica apaga
     linhaBackspaceEnter.append(botaoApagar) // adicionar na tela
     //Cria o botão do Enter
@@ -155,6 +154,4 @@ function apagarLetra(){
         }else {
             clicarTecla(evt.key.toUpperCase())
         }
-    }
-    
 }
