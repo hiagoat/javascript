@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <title>Contagem Cometa Halley</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <img src="imagem/contagem (2).png" alt="Logo" class="logo">
     <h1>Contagem para o Cometa Halley</h1>
@@ -24,8 +26,7 @@
     <h2 id="mensagemFinal"></h2>
     <div class="cometa" id="cometa"></div>
 
-    <audio id="somFundo" src="som/somInicio.mp3" ></audio>
-    <audio id="somFinal" src="som/somFinal.mp3" ></audio>
+    <audio id="somFinal" src="som/somFinal.mp3"></audio>
 
     <script>
         const somFinal = document.getElementById("somFinal");
@@ -37,7 +38,7 @@
         window.addEventListener("load", () => {
             setTimeout(() => {
                 somFundo.muted = false;
-                somFundo.volume = 0.5;
+                somFundo.volume = 0.7;
                 somFundo.play().catch((e) => {
                     console.warn("Navegador bloqueou o autoplay com som.", e);
                 });
@@ -46,12 +47,11 @@
 
         function atualizarContador() {
             const agora = new Date();
-            const dataAlvo = new Date(2025, 4, 27);
+            const dataAlvo = new Date(2025, 4, 15);
             const diferenca = dataAlvo - agora;
 
             if (diferenca <= 0) {
-                document.getElementById("contador").innerHTML = "<p>Chegou</p>";
-                somFinal.play();
+                document.getElementById("somFinal").play(); somFinal.play();
                 cometa.classList.add("animar-cometa");
                 mensagemFinal.textContent = "HOJE VAI APARECER O COMETA HALLEY";
                 barraProgresso.style.width = "100%";
@@ -69,11 +69,11 @@
             document.getElementById("minutos").textContent = `Minutos: ${minutos}`;
             document.getElementById("segundos").textContent = `Segundos: ${segundos}`;
 
-           
         }
 
         atualizarContador();
         const intervalo = setInterval(atualizarContador, 1000);
     </script>
 </body>
+
 </html>

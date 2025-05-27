@@ -1,86 +1,92 @@
       * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            height: 100vh;
-            background: radial-gradient(ellipse at bottom, #0d0d2b 0%, #000 100%);
-            color: #ffffff;
-            font-family: 'Orbitron', sans-serif;
-            text-align: center;
-            padding: 40px 20px;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
+      body {
+        height: 100vh;
+        background: radial-gradient(ellipse at bottom, #0d0d2b 0%, #000 100%);
+        color: #ffffff;
+        font-family: 'Orbitron', sans-serif;
+        text-align: center;
+        padding: 40px 20px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
 
-        .logo {
-            width: 190px;
-            margin-bottom: 20px;
-            animation: flutuar 3s ease-in-out infinite;
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            color: #4fc3f7;
-            text-shadow: 0 0 10px #4fc3f7;
-        }
+      .logo {
+        width: 190px;
+        margin-bottom: 20px;
+        animation: flutuar 3s ease-in-out infinite;
+      }
 
-        #contador {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 25px;
-            margin-bottom: 30px;
-        }
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        color: #4fc3f7;
+        text-shadow: 0 0 10px #4fc3f7;
+      }
 
-        #contador p {
-            font-size: 1.8rem;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 15px 25px;
-            border: 2px solid #4fc3f7;
-            border-radius: 12px;
-            min-width: 150px;
-            box-shadow: 0 0 12px #4fc3f7aa;
-        }
+      #contador {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 25px;
+        margin-bottom: 30px;
+      }
 
-        .barra-container {
-            width: 80%;
-            height: 22px;
-            margin: 30px auto;
-            border: 2px solid #4fc3f7;
-            border-radius: 20px;
-            overflow: hidden;
-            background: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 0 12px #4fc3f7aa;
-        }
+      #contador p {
+        font-size: 1.8rem;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 15px 25px;
+        border: 2px solid #4fc3f7;
+        border-radius: 12px;
+        min-width: 150px;
+        box-shadow: 0 0 12px #4fc3f7aa;
+      }
 
-        .barra-progresso {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #4fc3f7, #00bcd4);
-            border-radius: 20px;
-            transition: width 1s linear;
-        }
+      .barra-container {
+        width: 80%;
+        height: 22px;
+        margin: 30px auto;
+        border: 2px solid #4fc3f7;
+        border-radius: 20px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 12px #4fc3f7aa;
+      }
 
-        #mensagemFinal {
-            font-size: 2rem;
-            margin-top: 40px;
-            color: #ffeb3b;
-            text-shadow: 0 0 12px #ffeb3b;
-            animation: piscar 1s infinite;
-        }
-        .cometa {
-            position: fixed;
-            top: 20%;
-            left: -200px;
-            width: 150px;
-            height: 4px;
-            background: linear-gradient(90deg, #ffffff, transparent);
-            border-radius: 50%;
-            opacity: 0;
-            pointer-events: none;
-            z-index: 999;
-        }
+      .barra-progresso {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, #4fc3f7, #00bcd4);
+        border-radius: 20px;
+        transition: width 1s linear;
+      }
+
+      #mensagemFinal {
+        font-size: 2rem;
+        margin-top: 40px;
+        color: #ffeb3b;
+        text-shadow: 0 0 12px #ffeb3b;
+        animation: piscar 1s infinite;
+      }
+
+      .cometa {
+        position: fixed;
+        top: 20%;
+        left: -200px;
+        width: 150px;
+        height: 4px;
+        background: linear-gradient(90deg, #ffffff, transparent);
+        border-radius: 50%;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 999;
+      }
+
+      .barra-progresso {
+        transition: width 1s linear;
+      }
