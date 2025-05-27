@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Senha Forte</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Verificador de Senha</h2>
+        <input type="password" id="senha" placeholder="Digite sua senha" oninput="verificarSenha()">
+        <div id="resultado" class="strength"></div>
+        <ul class="password-rules">
+            <li>Pelo menos 8 caracteres</li>
+            <li>Letras maiúsculas e minúsculas</li>
+            <li>Pelo menos um número</li>
+            <li>Pelo menos um caractere especial (ex: !, @, #, $)</li>
+        </ul>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
