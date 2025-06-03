@@ -1,0 +1,97 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #283959;
+  color: #333;
+  text-align: center;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 4rem;
+  box-shadow: 0 0 30px rgba(0,0,0,0.1);
+}
+
+h1 {
+  color: #3868a6;
+}
+
+.game-box {
+  margin-top: 20px;
+}
+
+input[type="number"] {
+  padding: 0.5rem;
+  width: 70%;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 2px solid #3868a6;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  margin-top: 10px;
+  background-color: #023a7a;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+button:hover{
+    background-color: #4f88d3;
+}
+#message {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+#historyTitle {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+#historyList {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.footer {
+  margin-top: 30px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.main-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0; 
+  flex-wrap: wrap;
+}
+
+
+.logo {
+  width: 400px;
+  height: auto;
+  margin-top: -50px;
+}
+
+#historyTitle {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+#historyList li {
+  text-align: left;
+  margin: 5px 0;
+}

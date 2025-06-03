@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HARRY POTTER 🪄🧙‍♂️</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="main-layout">
+    <img src="img/logo.png" class="logo">
+    <div class="container">
+      <h1>NÚMERO PODEROSO EM HARRY POTTER 🧙‍♂️</h1>
+      <p>Acerte o número mágico do HARRY POTTER!🧙‍♂️ <strong>10 tentativas</strong></p>
+      
+      <div class="game-box">
+        <input type="number" id="guessInput" placeholder="Digite um número de 1 a 100" />
+        <br />
+        <button id="guessBtn">Tentar</button>
+        <button id="resetBtn">Reiniciar Jogo</button>
+        <div id="message"></div>
+
+        <div id="historyTitle">Histórico de tentativas:</div>
+        <ul id="historyList"></ul>
+      </div>
+
+      <p class="footer">Acerte o número!!</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
