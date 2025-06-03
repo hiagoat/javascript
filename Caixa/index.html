@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <h2>Simulador de Caixa – Cinema 🎟️🍿</h2>
+  <h2>CINEMAX – 🎟️🍿</h2>
 
   <label> Produto:
     <select id="produto">
@@ -113,6 +113,33 @@
       document.getElementById("valorPago").value = "";
       total = 0;
       ingressos = 0;
+    }
+
+    function mostrarMensagem(filme) {
+      const popup = document.getElementById("popup");
+      let mensagem = "";
+
+      switch (filme) {
+        case "lilo":
+          mensagem = "🌴 Bem-vindo ao mundo mágico da Disney com Lilo & Stitch!";
+          break;
+        case "dragao":
+          mensagem = "🐉 Prepare-se para voar com os dragões de Berk!";
+          break;
+        case "marvel":
+          mensagem = "🦸‍♂️ Thunderbolts chegando com ação do Universo Marvel!";
+          break;
+        case "karate":
+          mensagem = "🥋 Hora do treino! Mostre sua disciplina com Karate Kid!";
+          break;
+      }
+
+      popup.textContent = mensagem;
+      popup.style.display = "block";
+
+      setTimeout(() => {
+        popup.style.display = "none";
+      }, 3000);
     }
   </script>
 </body>
