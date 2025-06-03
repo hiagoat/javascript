@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de Caixa – Cinema 🎬</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h2>Simulador de Caixa – Cinema 🎟️🍿</h2>
+
+  <label> Produto:
+    <select id="produto">
+      <option value="Ingresso 🎟️">Ingresso 🎟️</option>
+      <option value="Pipoca 🍿">Pipoca 🍿</option>
+      <option value="Refrigerante 🥤">Refrigerante 🥤</option>
+      <option value="Chocolate 🍫">Chocolate 🍫</option>
+    </select>
+  </label>
+
+  <label>Valor (R$):
+    <input type="number" id="valor" step="0.01">
+  </label>
+
+  <label>Quantidade:
+    <input type="number" id="quantidade" min="1">
+  </label>
+
+  <br><br>
+  <button onclick="adicionarItem()">Adicionar à compra</button>
+  <button onclick="limparTudo()">Limpar Tudo</button>
+
+  <h3>Itens Selecionados:</h3>
+  <ul id="listarItens"></ul>
+
+  <h3>Total: R$ <span id="total">0.00</span></h3>
+
+  <label>Valor Pago (R$):
+    <input type="number" id="valorPago" step="0.01">
+  </label>
+  <button onclick="calcularTroco()">Calcular Troco</button>
+
+  <h3>Troco: R$ <span id="troco">0.00</span></h3>
+
+  <!-- Seção de Filmes em Cartaz -->
+  <div class="filmes">
+    <h3>🎬 Filmes em Cartaz</h3>
+    <div class="cartaz">
+      <img src="img/liloandstitch.jpg" alt="Filme 1" onclick="mostrarMensagem('lilo')">
+      <img src="img/dragao.jpg" alt="Filme 2" onclick="mostrarMensagem('dragao')">
+      <img src="img/thunderbolts.jpg" alt="Filme 3" onclick="mostrarMensagem('marvel')">
+      <img src="img/karate.jpg" alt="Filme 4" onclick="mostrarMensagem('karate')">
+    </div>
+    <div class="karate">
+        
+    </div>
+  </div>
+
+  <!-- Popup de mensagem -->
+  <div id="popup" class="popup"></div>
+
+  <script>
+    let total = 0;
+    let ingressos = 0;
+
+    function adicionarItem() {
+      const produto = document.getElementById("produto").value;
+      const valor = parseFloat(document.getElementById("valor").value);
+      const quantidade = parseInt(document.getElementById("quantidade").value);
+
+      if (!produto || isNaN(valor) || isNaN(quantidade) || quantidade <= 0) {
+        alert("Preencha todos os campos corretamente.");
+        return;
+      }
+
+      if (produto.includes("Ingresso")) {
+        ingressos += quantidade;
+      }
+
+      let subtotal = valor * quantidade;
+      const desconto = (produto.includes("Ingresso") && ingressos > 2) ? subtotal * 0.10 : 0;
+      subtotal -= desconto;
+      total += subtotal;
+
+      const lista = document.getElementById("listarItens");
+      const item = document.createElement("li");
+      item.className = "item";
+      item.textContent = `${produto} - R$${valor.toFixed(2)} x ${quantidade} = R$${subtotal.toFixed(2)}${desconto > 0 ? " (10% desc.)" : ""}`;
+      lista.appendChild(item);
+
+      document.getElementById("total").textContent = total.toFixed(2);
+
+      document.getElementById("valor").value = "";
+      document.getElementById("quantidade").value = "";
+    }
+
+    function calcularTroco() {
+      const valorPago = parseFloat(document.getElementById("valorPago").value);
+      if (isNaN(valorPago) || valorPago < total) {
+        alert("Valor pago insuficiente ou inválido.");
+        return;
+      }
+      const troco = valorPago - total;
+      document.getElementById("troco").textContent = troco.toFixed(2);
+    }
+
+    function limparTudo() {
+      document.getElementById("listarItens").innerHTML = "";
+      document.getElementById("total").textContent = "0.00";
+      document.getElementById("troco").textContent = "0.00";
+      document.getElementById("valorPago").value = "";
+      total = 0;
+      ingressos = 0;
+    }
+  </script>
+</body>
+
+</html>
