@@ -5,62 +5,168 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Jornada do Guardião</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f3f3f3;
+        }
+
+        #historia {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            margin: 10px 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>A Jornada do Guardião</h1>
+    <h1>A Jornada do Guardião 🧙‍♂️</h1>
     <div id="historia">
         <p>Você é um jovem aprendiz de mago. Ao receber um mapa antigo, descobre que um artefato mágico está escondido em uma floresta encantada. Deseja iniciar a jornada?</p>
-        <button onclick="escolha1('sim')">Sim, iniciar a jornada</button>
-        <button onclick="escolha1('nao')">Não, continuar estudando magia</button>
+        <button onclick="escolha1('sim')">Sim, iniciar a jornada 🚶‍♂️</button>
+        <button onclick="escolha1('nao')">Não, continuar estudando magia 📚</button>
     </div>
 
     <script>
         function escolha1(resposta) {
-            const div = document.getElementById("historia")
-            if (resposta == "sim") {
+            const div = document.getElementById("historia");
+            if (resposta === "sim") {
                 div.innerHTML = `
-                    <p>Você entra na floresta e encontra uma encruzilhada. De um lado, o caminho está iluminado por vagalumes. Do outro, há névoa e silêncio. Qual caminho você escolhe?</p>
+                    <p>Você entra na floresta e encontra uma encruzilhada. De um lado, o caminho está iluminado por vagalumes 🐛. Do outro, há névoa e silêncio 🌫️. Qual caminho você escolhe?</p>
                     <button onclick="escolha2('vagalumes')">Caminho dos vagalumes</button>
                     <button onclick="escolha2('nevoa')">Caminho da névoa</button>
-                `
+                `;
             } else {
-                div.innerHTML = `<p>Você ficou em casa, estudando feitiços. Talvez um dia esteja preparado para a aventura. FIM.</p>`
+                div.innerHTML = `<p>Você ficou em casa, estudando feitiços 📖. Talvez um dia esteja preparado para a aventura. <strong>FIM</strong>.</p>`;
             }
         }
 
         function escolha2(caminho) {
-            const div = document.getElementById("historia")
-            if (caminho == "vagalumes") {
+            const div = document.getElementById("historia");
+            if (caminho === "vagalumes") {
                 div.innerHTML = `
-                    <p>Os vagalumes o guiam até uma clareira com um baú misterioso. Deseja abrir?</p>
+                    <p>Os vagalumes o guiam até uma clareira com um baú misterioso 🎁. Deseja abrir?</p>
                     <button onclick="escolha3('abrir')">Abrir o baú</button>
                     <button onclick="escolha3('ignorar')">Ignorar o baú e seguir</button>
-                `
+                `;
             } else {
                 div.innerHTML = `
-                    <p>Na névoa, uma criatura sombria aparece. Você sente o perigo. O que faz?</p>
+                    <p>Na névoa, uma criatura sombria aparece 👹. Você sente o perigo. O que faz?</p>
                     <button onclick="escolha3('lutar')">Enfrentar a criatura</button>
                     <button onclick="escolha3('fugir')">Fugir silenciosamente</button>
-                `
+                `;
             }
         }
 
         function escolha3(acao) {
-            const div = document.getElementById("historia")
+            const div = document.getElementById("historia");
             switch (acao) {
                 case "abrir":
-                    div.innerHTML = `<p>Dentro do baú, você encontra o Cajado da Luz! Agora você é um verdadeiro guardião. FIM.</p>`
-                    break
+                    div.innerHTML = `
+                        <p>Dentro do baú, você encontra uma chave mágica 🔑. Logo à frente há um portal brilhante ✨. Deseja atravessar?</p>
+                        <button onclick="escolha4('entrar_portal')">Entrar no portal</button>
+                        <button onclick="escolha4('voltar')">Voltar para o vilarejo</button>
+                    `;
+                    break;
                 case "ignorar":
-                    div.innerHTML = `<p>Você segue pela floresta e acaba se perdendo. Após dias, volta para casa sem o artefato. FIM.</p>`
-                    break
+                    div.innerHTML = `
+                        <p>Você segue pela floresta e encontra uma ponte quebrada 🌉. Há cordas por perto. O que faz?</p>
+                        <button onclick="escolha4('reparar')">Tentar consertar a ponte</button>
+                        <button onclick="escolha4('voltar')">Voltar e tentar outro caminho</button>
+                    `;
+                    break;
                 case "lutar":
-                    div.innerHTML = `<p>Com coragem e magia, você derrota a criatura e encontra o artefato escondido entre as sombras. Você venceu! FIM.</p>`
-                    break
+                    div.innerHTML = `
+                        <p>Com coragem, você derrota a criatura 💥. Mais adiante há uma árvore com inscrições mágicas 🌳. Toca nela?</p>
+                        <button onclick="escolha4('tocar')">Sim, tocar na árvore</button>
+                        <button onclick="escolha4('ignorar_arvore')">Não, ignorar e seguir</button>
+                    `;
+                    break;
                 case "fugir":
-                    div.innerHTML = `<p>Você escapa por pouco, mas sem coragem para continuar, retorna ao vilarejo. FIM.</p>`
-                    break
+                    div.innerHTML = `
+                        <p>Você escapa por pouco 😓. No caminho de volta, encontra um corvo que fala 🐦. Ele oferece uma segunda chance. Aceita?</p>
+                        <button onclick="escolha4('aceitar_corvo')">Aceitar ajuda do corvo</button>
+                        <button onclick="escolha4('recusar_corvo')">Recusar e seguir para casa</button>
+                    `;
+                    break;
+            }
+        }
+
+        function escolha4(decisao) {
+            const div = document.getElementById("historia");
+            switch (decisao) {
+                case "entrar_portal":
+                    div.innerHTML = `
+                        <p>Você atravessa o portal e chega a um templo antigo 🏛️. Lá dentro, encontra o Artefato da Luz! <strong>Você completou a jornada como Guardião Supremo! 🌟 FIM.</strong></p>
+                    `;
+                    break;
+                case "voltar":
+                    div.innerHTML = `
+                        <p>Você retorna ao vilarejo com novas histórias e experiências, mas sem o artefato. Ainda assim, será respeitado. <strong>FIM.</strong></p>
+                    `;
+                    break;
+                case "reparar":
+                    div.innerHTML = `
+                        <p>Você consegue cruzar a ponte! Do outro lado, encontra uma fada 🧚 que lhe entrega um mapa secreto. Deseja segui-lo?</p>
+                        <button onclick="escolha5('seguir_mapa')">Seguir o mapa</button>
+                        <button onclick="escolha5('descansar')">Descansar sob uma árvore</button>
+                    `;
+                    break;
+                case "tocar":
+                    div.innerHTML = `
+                        <p>A árvore o transporta para o passado! Você vê a criação do artefato mágico. Tenta pegá-lo no passado?</p>
+                        <button onclick="escolha5('pegar_artefato')">Tentar pegar</button>
+                        <button onclick="escolha5('observar')">Apenas observar</button>
+                    `;
+                    break;
+                case "ignorar_arvore":
+                    div.innerHTML = `
+                        <p>Você segue em frente e encontra um castelo em ruínas 🏰. Dentro, há um guardião adormecido. Acordá-lo?</p>
+                        <button onclick="escolha5('acordar_guardiao')">Sim, acordar</button>
+                        <button onclick="escolha5('evitar_castelo')">Evitar o castelo</button>
+                    `;
+                    break;
+                case "aceitar_corvo":
+                    div.innerHTML = `
+                        <p>O corvo o guia até uma gruta secreta onde o artefato está protegido por enigmas 🧩. Tentar resolver?</p>
+                        <button onclick="escolha5('resolver_enigma')">Resolver o enigma</button>
+                        <button onclick="escolha5('desistir_enigma')">Desistir</button>
+                    `;
+                    break;
+                case "recusar_corvo":
+                    div.innerHTML = `<p>Você volta para casa e decide abandonar as aventuras. <strong>FIM.</strong></p>`;
+                    break;
+            }
+        }
+
+        function escolha5(final) {
+            const div = document.getElementById("historia");
+            switch (final) {
+                case "seguir_mapa":
+                case "pegar_artefato":
+                case "resolver_enigma":
+                    div.innerHTML = `<p>Parabéns! Você superou todos os desafios e se tornou o novo Guardião do Artefato! 🏆✨ <strong>FIM.</strong></p>`;
+                    break;
+                case "descansar":
+                case "observar":
+                case "evitar_castelo":
+                case "desistir_enigma":
+                    div.innerHTML = `<p>Sua jornada termina de forma tranquila, mas o artefato ainda espera por um verdadeiro Guardião... 🕊️ <strong>FIM.</strong></p>`;
+                    break;
+                case "acordar_guardiao":
+                    div.innerHTML = `<p>O guardião desperta e reconhece seu valor. Ele entrega o artefato em suas mãos. 🗝️ <strong>Você venceu! FIM.</strong></p>`;
+                    break;
             }
         }
     </script>
