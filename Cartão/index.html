@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartões Interativos</title>
+    <style>
+        .container {
+            width: 350px;
+            height: 200px;
+            perspective: 1000px;
+            display: inline-block;
+        }
+
+        .cartao {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .cartao.virado {
+            transform: rotateY(180deg);
+        }
+
+        .frente,
+        .verso {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: white;
+        }
+
+        .frente {
+            background-color: red;
+        }
+
+        .verso {
+            background-color: green;
+            transform: rotateY(180deg);
+        }
+
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .namorados .frente {
+            background-image: url('imagens/FELIZ\ DIA\ DOS\ NAMORADOS.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .namorados .verso {
+            background-image: url('imagens/FELIZ\ DIA\ DOS\ NAMORADOS\ \(1\).png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="cartao natal">
+            <div class="frente">Natal - Frente</div>
+            <div class="verso">Natal - Verso</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="cartao mae">
+            <div class="frente">Dia das Mães</div>
+            <div class="verso">Dia das Mães</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="cartao namorados">
+            <div class="frente"></div>
+            <div class="verso"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="cartao anonovo">
+            <div class="frente">Ano Novo</div>
+            <div class="verso">Ano Novo</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="cartao pascoa">
+            <div class="frente">Páscoa</div>
+            <div class="verso">Páscoa</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="cartao professor">
+            <div class="frente">Professor - Frente</div>
+            <div class="verso">Professor - Verso</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="cartao desculpas">
+            <div class="frente">Desculpas - Frente</div>
+            <div class="verso">Desculpas - Verso</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="cartao motivacional">
+            <div class="frente">Motivacional - Frente</div>
+            <div class="verso">Motivacional - Verso</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="cartao festajunina">
+            <div class="frente">Festa Junina - Frente</div>
+            <div class="verso">Festa Junina - Verso</div>
+        </div>
+    </div>
+
+    <script>
+        const cartoes = document.querySelectorAll(".cartao");
+        cartoes.forEach(cartao => {
+            cartao.addEventListener("click", () => {
+                cartao.classList.toggle("virado");
+            });
+        });
+    </script>
+</body>
+
+</html>
