@@ -1,63 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>A Jornada do Guardião</title>
 </head>
 
 <body>
-    <h1>A floresta</h1>
+    <h1>A Jornada do Guardião</h1>
     <div id="historia">
-        <p>Você está na frente de uma floresta. Deseja continuar ?</p>
-        <button onclick="escolha1('sim' )">Entrar na floresta</button>
-        <button onclick="escolha1('nao' )">Voltar para casa</button>
+        <p>Você é um jovem aprendiz de mago. Ao receber um mapa antigo, descobre que um artefato mágico está escondido em uma floresta encantada. Deseja iniciar a jornada?</p>
+        <button onclick="escolha1('sim')">Sim, iniciar a jornada</button>
+        <button onclick="escolha1('nao')">Não, continuar estudando magia</button>
     </div>
+
     <script>
         function escolha1(resposta) {
             const div = document.getElementById("historia")
             if (resposta == "sim") {
                 div.innerHTML = `
-                    <p>Você encontra dois caminhos. Qual deseja seguir?</p>
-                    <button onclick="escolha2('esquerda')">Caminho da esquerda</button>
-                    <button onclick="escolha2('direita' )">Caminho da direita</button>
-    `
-
+                    <p>Você entra na floresta e encontra uma encruzilhada. De um lado, o caminho está iluminado por vagalumes. Do outro, há névoa e silêncio. Qual caminho você escolhe?</p>
+                    <button onclick="escolha2('vagalumes')">Caminho dos vagalumes</button>
+                    <button onclick="escolha2('nevoa')">Caminho da névoa</button>
+                `
             } else {
-                div.innerHTML = `<p>Você foi para casa. FIM`
+                div.innerHTML = `<p>Você ficou em casa, estudando feitiços. Talvez um dia esteja preparado para a aventura. FIM.</p>`
             }
         }
+
         function escolha2(caminho) {
             const div = document.getElementById("historia")
-            if (caminho == "esquerda") {
+            if (caminho == "vagalumes") {
                 div.innerHTML = `
-        <p>Você encontra um dragão. O que vai fazer?</p>
-        <button onclick="escolha3('abrir')">Abrir</button>
-        <button onclick="escolha3"('ignorar')">Ignorar</button>
-        `
-            }else {
+                    <p>Os vagalumes o guiam até uma clareira com um baú misterioso. Deseja abrir?</p>
+                    <button onclick="escolha3('abrir')">Abrir o baú</button>
+                    <button onclick="escolha3('ignorar')">Ignorar o baú e seguir</button>
+                `
+            } else {
                 div.innerHTML = `
-                <p>Você encontra um dragão. O que vai fazer?</p>
-                <button onclick="escolha3('abrir')">Abrir</button>
-                <button onclick="escolha3"('ignorar')">Ignorar</button>
-        `
+                    <p>Na névoa, uma criatura sombria aparece. Você sente o perigo. O que faz?</p>
+                    <button onclick="escolha3('lutar')">Enfrentar a criatura</button>
+                    <button onclick="escolha3('fugir')">Fugir silenciosamente</button>
+                `
             }
         }
+
         function escolha3(acao) {
             const div = document.getElementById("historia")
             switch (acao) {
-                case "lutar":
-                    div.innerHTML = `<p>Voce venceu. Parabens! </p>`
-                    break
-                case "fugir":
-                    div.innerHTML = `<p>Você fugiu e chegou na entra
-                        da floresta</p>`
                 case "abrir":
-                    div.innerHTML = `<p>No bau tinha um tesouro, você agora esta rico. FIM</p>`
+                    div.innerHTML = `<p>Dentro do baú, você encontra o Cajado da Luz! Agora você é um verdadeiro guardião. FIM.</p>`
                     break
                 case "ignorar":
-                    div.innerHTML = `<p>Você caminhou e chegou na entrada da floresta. FIM</p>`
+                    div.innerHTML = `<p>Você segue pela floresta e acaba se perdendo. Após dias, volta para casa sem o artefato. FIM.</p>`
+                    break
+                case "lutar":
+                    div.innerHTML = `<p>Com coragem e magia, você derrota a criatura e encontra o artefato escondido entre as sombras. Você venceu! FIM.</p>`
+                    break
+                case "fugir":
+                    div.innerHTML = `<p>Você escapa por pouco, mas sem coragem para continuar, retorna ao vilarejo. FIM.</p>`
                     break
             }
         }
