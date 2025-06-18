@@ -1,137 +1,178 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Escape Potter</title>
-    <style>
-        body {
-            background-color: #f2f2f2;
-            font-family: 'Verdana', sans-serif;
-            color: #333;
-            padding: 30px;
-            text-align: center;
-        }
+  <meta charset="UTF-8" />
+  <title>Escape Potter - Escolha sua Casa</title>
+  <style>
+    body {
+      background-image: url('https://i.imgur.com/3cgZyoe.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: 'Georgia', serif;
+      color: #f5f5f5;
+      padding: 30px;
+      text-align: center;
+    }
 
-        h1 {
-            color: #5a2a8c;
-            margin-bottom: 10px;
-        }
+    h1 {
+      color: #ffd700;
+      font-size: 36px;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px #000;
+    }
 
-        p {
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
+    .casa {
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      display: inline-block;
+      margin: 10px;
+      padding: 20px;
+      width: 200px;
+      cursor: pointer;
+      transition: 0.3s;
+      color: white;
+    }
 
-        button {
-            background-color: #7e57c2;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 12px 18px;
-            margin: 10px 5px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
 
-        button:hover {
-            background-color: #673ab7;
-        }
 
-        input {
-            padding: 8px;
-            margin-top: 10px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-            width: 200px;
-        }
+    .grifinoria { background-color: #ae0001; }
+    .sonserina { background-color: #1a472a; }
+    .corvinal { background-color: #0e1a40; }
+    .lufalufa { background-color: #ecb939; color: #000; }
+    .casanova { background-color: #444; color: #fff; }
 
-        #enigma-area {
-            background-color: #ffffff;
-            border: 1px solid #ccc;
-            padding: 20px;
-            margin-top: 30px;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
-        }
-    </style>
+    #gameArea {
+      margin-top: 30px;
+    }
+
+    button {
+      background-color: #6a1b9a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 18px;
+      margin: 10px 5px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    input {
+      padding: 8px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      width: 250px;
+    }
+
+    .desafio {
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      color: #000;
+    }
+  </style>
 </head>
 <body>
+  <h1>⚡ Bem-vindo ao Desafio das Casas de Hogwarts ⚡</h1>
+  <p>Escolha sua casa e prepare-se para enigmas e obstáculos mágicos!</p>
 
-    <h1>Escape Potter</h1>
-    <p>Você está preso em Hogwarts. Resolva os enigmas para escapar da sala!</p>
+  <div id="casas">
+    <div class="casa grifinoria" onclick="escolherCasa('grifinoria')">🦁 Grifinória</div>
+    <div class="casa sonserina" onclick="escolherCasa('sonserina')">🐍 Sonserina</div>
+    <div class="casa corvinal" onclick="escolherCasa('corvinal')">🦅 Corvinal</div>
+    <div class="casa lufalufa" onclick="escolherCasa('lufalufa')">🦡 Lufa-Lufa</div>
+    <div class="casa casanova" onclick="escolherCasa('casanova')">❓ Casa Nova</div>
+  </div>
 
-    <div id="opcoes">
-        <button onclick="investigar('varinha')">✨ Ver Varinha Mágica</button>
-        <button onclick="investigar('chapeu')">🎩 Falar com o Chapéu</button>
-        <button onclick="investigar('pocao')">🧪 Olhar o Caldeirão</button>
-        <button onclick="verificarSaida()">🚪 Tentar Sair</button>
-    </div>
+  <div id="gameArea"></div>
+  <audio id="bgm" src="https://cdn.pixabay.com/download/audio/2023/03/25/audio_8cbb315271.mp3?filename=hogwarts-theme-139076.mp3" autoplay loop></audio>
 
-    <div id="enigma-area"></div>
+  <script>
+    const desafios = {
+      grifinoria: [
+        { pergunta: "Qual o nome do bruxo mais famoso da Grifinória?", resposta: "harry" },
+        { obstaculo: "Você precisa encontrar o pomo de ouro escondido na sala!", pista: "Está atrás do quadro da bruxa gorda." },
+        { pergunta: "Quem fundou a Grifinória?", resposta: "Godrico Gryffindor" }
+      ],
+      sonserina: [
+        { pergunta: "Qual o nome do vilão mais temido?", resposta: "voldemort" },
+        { obstaculo: "Uma cobra bloqueia seu caminho. Use um feitiço!", pista: "Experimente 'serpensortia'." },
+        { pergunta: "Qual Horcrux foi escondido por Voldemort na Sonserina?", resposta: "medalhao" }
+      ],
+      corvinal: [
+        { pergunta: "Qual a cor da casa Corvinal?", resposta: "azul" },
+        { obstaculo: "A charada diz: 'O que vem uma vez em um minuto, duas vezes em um momento e nunca em mil anos?'", pista: "letra m" },
+        { pergunta: "Quem fundou Corvinal?", resposta: "rowena corvinal" }
+      ],
+      lufalufa: [
+        { pergunta: "Qual o símbolo da Lufa-Lufa?", resposta: "texugo" },
+        { obstaculo: "Um trasgo está dormindo na porta. Você precisa distraí-lo!", pista: "Toque uma música com seu rádio encantado." },
+        { pergunta: "Qual é o animal símbolo da Lufa-Lufa?", resposta: "texugo" }
+      ]
+    };
 
+    let casaEscolhida = "";
+    let etapa = 0;
 
-    <script>
-        let resolvidos = {
-            varinha: false,
-            chapeu: false,
-            pocao: false
-        };
+    function escolherCasa(casa) {
+      casaEscolhida = casa;
+      etapa = 0;
+      document.getElementById("casas").style.display = "none";
+      if (casa === 'casanova') {
+        document.getElementById("gameArea").innerHTML = `
+          <div class='desafio'>
+            <h2>💀 Você entrou na Casa Nova...</h2>
+            <p>Infelizmente, era uma armadilha. Voldemort apareceu e você morreu instantaneamente. 🐍</p>
+          </div>
+        `;
+        return;
+      }
+      proximoDesafio();
+    }
 
-        function investigar(item) {
-            const area = document.getElementById("enigma-area");
-            let pergunta = "", respostaCerta = "";
+    function proximoDesafio() {
+      const area = document.getElementById("gameArea");
+      area.innerHTML = "";
+      const desafio = desafios[casaEscolhida][etapa];
+      if (!desafio) {
+        area.innerHTML = `<div class='desafio'><h2>🎉 Parabéns! Você completou os desafios da ${casaEscolhida.toUpperCase()}!</h2></div>`;
+        return;
+      }
 
-            if (resolvidos[item]) {
-                area.innerHTML = "<p><strong>✅ Já resolveu esse enigma.</strong></p>";
-                return;
-            }
+      const bloco = document.createElement("div");
+      bloco.className = "desafio";
+      if (desafio.pergunta) {
+        bloco.innerHTML = `
+          <p><strong>Enigma:</strong> ${desafio.pergunta}</p>
+          <input type="text" id="resposta" placeholder="Digite sua resposta">
+          <br><br><button onclick="verificarResposta('${desafio.resposta}')">Responder</button>
+        `;
+      } else if (desafio.obstaculo) {
+        bloco.innerHTML = `
+          <p><strong>Obstáculo:</strong> ${desafio.obstaculo}</p>
+          <p><em>Dica: ${desafio.pista}</em></p>
+          <button onclick="etapa++; proximoDesafio();">Continuar</button>
+        `;
+      }
+      area.appendChild(bloco);
+    }
 
-            if (item === "varinha") {
-                pergunta = "Sou invisível, mas te protejo. Quem sou eu?";
-                respostaCerta = "capa da invisibilidade";
-            } else if (item === "chapeu") {
-                pergunta = "Sou quatro, mas sou um. Divido os alunos. O que sou?";
-                respostaCerta = "casas";
-            } else if (item === "pocao") {
-                pergunta = "Sou líquido e posso ajudar ou atrapalhar. O que sou?";
-                respostaCerta = "poção";
-            }
+   function verificarResposta(correto) {
+  const respostaUsuario = document.getElementById("resposta").value.trim().toLowerCase();
+  const corretoFormatado = removerAcentos(correto.toLowerCase());
 
-            area.innerHTML = `
-                <p><strong>🧩 Enigma:</strong> ${pergunta}</p>
-                <input type="text" id="resposta" placeholder="Digite sua resposta...">
-                <br>
-                <button onclick="verificarResposta('${item}', '${respostaCerta}')">Responder</button>
-            `;
-        }
+  if (removerAcentos(respostaUsuario).includes(corretoFormatado)) {
+    etapa++;
+    proximoDesafio();
+  } else {
+    alert("❌ Resposta incorreta! Tente novamente ou pense melhor.");
+  }
+}
 
-        function verificarResposta(item, respostaCerta) {
-            const input = document.getElementById("resposta").value.trim().toLowerCase();
-            const area = document.getElementById("enigma-area");
+function removerAcentos(texto) {
+  return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
 
-            if (input === respostaCerta || (item === "chapeu" && input.includes(respostaCerta))) {
-                resolvidos[item] = true;
-                area.innerHTML = "<p style='color:green'><strong>✔️ Acertou! Uma chave apareceu.</strong></p>";
-            } else {
-                area.innerHTML = "<p style='color:red'><strong>❌ Resposta errada.</strong></p>";
-            }
-        }
-
-        function verificarSaida() {
-            const area = document.getElementById("enigma-area");
-            if (resolvidos.varinha && resolvidos.chapeu && resolvidos.pocao) {
-                area.innerHTML = "<p style='color:green'><strong>🎉 Você escapou da sala! Parabéns, bruxo!</strong></p>";
-                document.getElementById("opcoes").style.display = "none";
-            } else {
-                area.innerHTML = "<p style='color:orange'><strong>🚪 Ainda falta resolver algum enigma...</strong></p>";
-            }
-        }
-    </script>
-
+  </script>
 </body>
 </html>
